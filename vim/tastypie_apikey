@@ -1,0 +1,984 @@
+show tables;
+create database vim with owner = vim;
+create database test;
+\h
+\?
+\d
+\q
+drop user vim
+drop user jmiyares
+exit
+\q
+drop user if exists vim;
+\q
+SELECT 1 FROM pg_roles WHERE rolname=
+SELECT 1 FROM pg_roles WHERE rolname='vim';
+SELECT 1 FROM pg_roles WHERE rolname=
+SELECT 1 FROM pg_roles WHERE rolname='vim';
+\e
+SELECT 1 FROM pg_roles WHERE rolname='vim';
+SELECT * FROM pg_roles WHERE rolname='vim';
+SELECT * FROM pg_roles;
+\l
+\q
+\l
+\t
+\q
+\q
+\dt;
+create database vim with owner jmiyares
+\d
+\dt
+\l
+create database vim with owner jmiyares;
+create database vim with owner =jmiyares;
+\l
+\q
+\dt
+\q
+exit
+\q
+\dt
+\l
+\h
+drop database vim
+\dt
+\l
+\h
+drop database 
+drop database vim;
+drop database 
+drop database;
+DROP DATABASE
+\l
+\l
+\q
+\dt
+drop table south_migrationhistory
+\dt
+select * from south_migrationhistory;
+\l
+\q
+\dt
+\q
+\dt
+\q
+\dt
+CREATE TABLE `stylist` (
+  `idstylist` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `middlename` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `address1` varchar(45) NOT NULL,
+  `address2` varchar(45) DEFAULT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `postalcode` varchar(20) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `mobile` varchar(15) NOT NULL,
+  `createtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatetimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idmarket` int(11) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idstylist`),
+  KEY `idmarket_idx` (`idmarket`),
+  CONSTRAINT `idmarket` FOREIGN KEY (`idmarket`) REFERENCES `markets` (`idmarkets`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+\q
+\qt
+\h
+\h
+\t
+\q
+\dt
+quit
+\q
+\t
+create table test (
+x varchar(255)
+)
+;
+\t
+create table stylist (
+password VARCHAR (50) NOT NULL
+)
+;
+\t
+\
+\?
+\dt
+drop table test;
+drop table stylist;
+CREATE TABLE "markets" (
+  "idmarkets" int(11) NOT NULL,
+  "name" varchar(45) NOT NULL,
+  "createtimestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatetimestamp" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("idmarkets"),
+  UNIQUE KEY "name_UNIQUE" ("name")
+)
+;
+\e
+CREATE TABLE "markets" (
+  "idmarkets" int  NOT NULL,
+  "name" varchar(45) NOT NULL,
+  "createtimestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatetimestamp" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("idmarkets"),
+  UNIQUE KEY "name_UNIQUE" ("name")
+)
+;
+;
+\dt
+\e
+;
+CREATE TABLE "markets" (
+  "idmarkets" int(11) NOT NULL,
+  "name" varchar(45) NOT NULL,
+  "createtimestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatetimestamp" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("idmarkets"),
+  UNIQUE KEY "name_UNIQUE" ("name")
+;
+)
+;
+\e
+CREATE TABLE "markets" (
+  "idmarkets" integer  NOT NULL,
+  "name" varchar(45) NOT NULL,
+  "createtimestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatetimestamp" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("idmarkets"),
+  UNIQUE KEY "name_UNIQUE" ("name")
+)
+;
+\e
+CREATE TABLE "markets" (
+  "idmarkets" integer  NOT NULL,
+  "name" varchar(45) NOT NULL,
+  "createtimestamp" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updatetimestamp" timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ("idmarkets")
+)
+;
+\dt
+select * from markets;
+select count(*) from markets;
+\q
+\dt
+CREATE TABLE `stylist` (
+  `idstylist` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `middlename` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `address1` varchar(45) NOT NULL,
+  `address2` varchar(45) DEFAULT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `postalcode` varchar(20) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `mobile` varchar(15) NOT NULL,
+  `createtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatetimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `idmarket` int(11) NOT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idstylist`),
+  KEY `idmarket_idx` (`idmarket`),
+  CONSTRAINT `idmarket` FOREIGN KEY (`idmarket`) REFERENCES `markets` (`idmarkets`) ON DELETE NO ACTION ON UPDATE NO ACTION
+);
+\e
+\dt
+\e
+CREATE TABLE stylist (
+  idstylist int(11) NOT NULL AUTO_INCREMENT,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active tinyint(1) NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket int(11) NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE stylist (
+  idstylist integer  NOT NULL AUTO_INCREMENT,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active tinyint(1) NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket int(11) NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+;
+\e
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active tinyint(1) NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket int(11) NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+;
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active tinyint(1) NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket int(11) NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+\e
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active tinyint(1) NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket integer  NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active smallint  NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket integer  NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+;
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active smallint  NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket integer  NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+\e
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active smallint  NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket integer  NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  KEY idmarket_idx (idmarket),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+;
+\e
+CREATE TABLE stylist (
+  idstylist serial NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  active smallint  NOT NULL DEFAULT '0',
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarket integer  NOT NULL,
+  avatar varchar(255) DEFAULT NULL,
+  PRIMARY KEY (idstylist),
+  CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+
+;
+;
+\dt
+CREATE TABLE `customer` (
+  `idcustomer` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `middlename` varchar(45) DEFAULT NULL,
+  `address1` varchar(255) NOT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `city` varchar(45) NOT NULL,
+  `postalcode` varchar(20) NOT NULL,
+  `mobile` varchar(15) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `createtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatetimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idcustomer`)
+);
+\e
+CREATE TABLE customer (
+  idcustomer serial  NOT NULL ,
+  firstname varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  middlename varchar(45) DEFAULT NULL,
+  address1 varchar(255) NOT NULL,
+  address2 varchar(255) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  mobile varchar(15) DEFAULT NULL,
+  active smallint  NOT NULL DEFAULT '0',
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (idcustomer)
+)
+;
+\dt
+\q
+drop table customer;
+CREATE TABLE customer (
+    idcustomer integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT 0::smallint NOT NULL,
+  facebook varchar(45) DEFAULT NULL,
+  facebook_token varchar(45) DEFAULT NULL,
+  twitter varchar(45) DEFAULT NULL,
+  twitter_token varchar(45) DEFAULT NULL,
+  wallet varchar(45) DEFAULT NULL,
+  wallet_token varchar(45) DEFAULT NULL,
+  paypal varchar(45) DEFAULT NULL,
+  paypal_token varchar(45) DEFAULT NULL,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now()
+)
+;
+exit
+\q
+drop table stylist
+CREATE TABLE stylist (
+    idstylist integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    middlename character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    active smallint DEFAULT 0::smallint NOT NULL,
+    mobile character varying(15) NOT NULL,
+  facebook varchar(45) DEFAULT NULL,
+  facebook_token varchar(45) DEFAULT NULL,
+  twitter varchar(45) DEFAULT NULL,
+  twitter_token varchar(45) DEFAULT NULL,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    avatar character varying(255) DEFAULT NULL::character varying
+)
+;
+\e
+CREATE TABLE stylist (
+    idstylist integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    middlename character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    active smallint DEFAULT 0::smallint NOT NULL,
+    mobile character varying(15) NOT NULL,
+  facebook varchar(45) DEFAULT NULL,
+  facebook_token varchar(45) DEFAULT NULL,
+  twitter varchar(45) DEFAULT NULL,
+  twitter_token varchar(45) DEFAULT NULL,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    avatar character varying(255) DEFAULT NULL::character varying
+)
+;
+;
+\dt
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued datetime DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude float(10,6) NOT NULL DEFAULT '0.000000',
+  longitude float(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idcustomer_appointments FOREIGN KEY (idcustomer) REFERENCES customer (idcustomer) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued datetime DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  longitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idcustomer_appointments FOREIGN KEY (idcustomer) REFERENCES customer (idcustomer) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued datetime DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  longitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idcustomer_appointments FOREIGN KEY (idcustomer) REFERENCES customer (idcustomer) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued datetime DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  longitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idcustomer_appointments FOREIGN KEY (idcustomer) REFERENCES customer (idcustomer) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued timestamp  DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  longitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idcustomer_appointments FOREIGN KEY (idcustomer) REFERENCES customer (idcustomer) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+\e
+CREATE TABLE appointments (
+  idappointments serial  NOT NULL ,
+  idcustomer integer  NOT NULL,
+  idstylist_assigned integer  NOT NULL DEFAULT '0',
+  reservationdatetime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  reservationschedued timestamp  DEFAULT NULL,
+  createtimestamp timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  idmarkets integer  NOT NULL,
+  address1 varchar(45) NOT NULL,
+  address2 varchar(45) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(15) NOT NULL,
+  services varchar(255) NOT NULL,
+  price float NOT NULL,
+  latitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  longitude numeric(10,6) NOT NULL DEFAULT '0.000000',
+  mobile varchar(15) DEFAULT NULL,
+  customername varchar(100) NOT NULL,
+  iddispatcher integer  NOT NULL DEFAULT '0',
+  dispatchername varchar(100) DEFAULT NULL,
+  PRIMARY KEY (idappointments),
+  CONSTRAINT idmarkets_appointments FOREIGN KEY (idmarkets) REFERENCES markets (idmarkets) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+;
+\dt
+\t
+show create table customer;
+\h
+\h
+show custoer;
+show customer
+\dt
+show table customer
+;
+\h show
+table customer
+;
+describe customer
+;
+\d+ customer
+drop table customer;
+CREATE TABLE customer (
+    idcustomer integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now()
+)
+\e
+;
+\dt
+ALTER TABLE idcustomer  ADD PRIMARY KEY (customerid);
+ALTER TABLE customer  ADD PRIMARY KEY (idcustomer);
+CREATE TABLE customer (
+    idcustomer integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now()
+)
+\e
+CREATE TABLE customer (
+    idcustomer serial NOT NULL Primary Key,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamptz  DEFAULT now() NOT NULL,
+    updatetimestamp timestamptz DEFAULT now()
+)
+;
+drop table customer;
+CREATE TABLE customer (
+    idcustomer integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now()
+)
+\e
+CREATE TABLE customer (
+    idcustomer serial NOT NULL PRIMARY KEY,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamptz  DEFAULT now() NOT NULL,
+    updatetimestamp timestamptz DEFAULT now()
+)
+;
+drop table appointments;
+CREATE TABLE appointments (
+    idappointments integer NOT NULL,
+    idcustomer integer NOT NULL,
+    idstylist_assigned integer DEFAULT 0 NOT NULL,
+    reservationdatetime timestamp without time zone DEFAULT now() NOT NULL,
+    reservationschedued timestamp without time zone,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    idmarkets integer NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(15) NOT NULL,
+    services character varying(255) NOT NULL,
+    price double precision NOT NULL,
+    latitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    longitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    customername character varying(100) NOT NULL,
+    iddispatcher integer DEFAULT 0 NOT NULL,
+    dispatchername character varying(100) DEFAULT NULL::character varying
+)
+\e
+CREATE TABLE appointments (
+    idappointments serial NOT NULL PRIMARY KEY,
+    idcustomer integer NOT NULL references customer(idcustomer),
+    idstylist_assigned integer DEFAULT 0 NOT NULL references stylist(idstylistid),
+    reservationdatetime timestamptz  DEFAULT now() NOT NULL,
+    reservationschedued timestamptz  zone,
+    createtimestamp timestamptz  DEFAULT now() NOT NULL,
+    updatetimestamp timestamptz  DEFAULT now(),
+    idmarkets integer NOT NULL references markets(idmarket),
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(15) NOT NULL,
+    services character varying(255) NOT NULL,
+    price double precision NOT NULL,
+    latitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    longitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    customername character varying(100) NOT NULL,
+    iddispatcher integer DEFAULT 0 NOT NULL,
+    dispatchername character varying(100) DEFAULT NULL::character varying
+)
+;
+\e
+;
+\dt
+;
+\dt
+CREATE TABLE appointments (
+    idappointments integer NOT NULL,
+    idcustomer integer NOT NULL,
+    idstylist_assigned integer DEFAULT 0 NOT NULL,
+    reservationdatetime timestamp without time zone DEFAULT now() NOT NULL,
+    reservationschedued timestamp without time zone,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    idmarkets integer NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(15) NOT NULL,
+    services character varying(255) NOT NULL,
+    price double precision NOT NULL,
+    latitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    longitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    customername character varying(100) NOT NULL,
+    iddispatcher integer DEFAULT 0 NOT NULL,
+    dispatchername character varying(100) DEFAULT NULL::character varying
+)
+\e
+;
+\dt
+CREATE TABLE `dispatcher` (
+  `iddispatcher` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(45) NOT NULL,
+  `middlename` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `address1` varchar(255) NOT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `postalcode` varchar(20) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `createtimestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatetimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`iddispatcher`)
+)
+\e
+;
+\e
+CREATE TABLE dispatcher (
+  iddispatcher serial NOT NULL Primary Key,
+  firstname varchar(45) NOT NULL,
+  middlename varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  address1 varchar(255) NOT NULL,
+  address2 varchar(255) DEFAULT NULL,
+  city varchar(45) NOT NULL,
+  state varchar(45) NOT NULL,
+  postalcode varchar(20) NOT NULL,
+  mobile varchar(15) NOT NULL,
+  createtimestamp timestamptz  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatetimestamp timestamptz  NULL DEFAULT CURRENT_TIMESTAMP
+)
+
+;
+\dt
+alter table customer add password varchar(255) not null;
+alter table stylist  add password varchar(255) not null;
+\dt
+\q
+\dt
+\d
+ \q
+\dt
+\dt markets
+\t markets
+\q
+\h
+\q
+drop table Markets;
+CREATE SEQUENCE markets_idmarkets_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE public.markets_idmarkets_seq OWNER TO jmiyares;
+ALTER TABLE public.markets_idmarkets_seq OWNER TO jmiyares;
+ALTER SEQUENCE markets_idmarkets_seq OWNED BY markets.idmarkets;
+\q
+ALTER SEQUENCE markets_idmarkets_seq OWNED BY markets.idmarkets;
+insert into markets ('test');
+insert into markets values ('test');
+insert into markets (name0 values ('test');
+select * from markets;
+\q
+select * from customer;
+select idcustomer from customer;
+select idcustomer from customer;
+select idcustomer,mobile from customer;
+select idcustomer,mobile from customer;
+select idcustomer,mobile from customer;
+alter table stylist add column email varchar(255) not null;
+alter table customer  add column email varchar(255) not null;
+alter table customer  add column email varchar(255) not null default "";
+alter table customer  add column email varchar(255) not null default= "";
+delete from customer;
+alter table customer  add column email varchar(255) not null;
+alter table dispatcher  add column email varchar(255) not null;
+select * from customer;
+select * from customer;
+select * from customer;
+select * from customer;
+delete from customer where idcustomer=0
+select * from customer;
+select * from customer;
+delete from customer where idcustomer=0
+select * from customer;
+select * from custmer;
+select * from customer;
+delete from customer where idcustomer=0;
+select * from customer;
+select * from customer;
+select * from customer;
+\dt
+select * from tastypie_apikey
+select * from tastypie_apikey
+\h
+\t tastypie_apikey
+\dt tastypie_apikey
+describe tastypie_apikey
+;
+insert into tastypie_apikey (username,apikey) values ('jmiyares','api_key=204db7bcfafb2deb7506b89eb3b9b715b09905c8');
+\s tastypie_apikey

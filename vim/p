@@ -1,0 +1,314 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: appointments; Type: TABLE; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+CREATE TABLE appointments (
+    idappointments integer NOT NULL,
+    idcustomer integer NOT NULL,
+    idstylist_assigned integer DEFAULT 0 NOT NULL,
+    reservationdatetime timestamp without time zone DEFAULT now() NOT NULL,
+    reservationschedued timestamp without time zone,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    idmarkets integer NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(15) NOT NULL,
+    services character varying(255) NOT NULL,
+    price double precision NOT NULL,
+    latitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    longitude numeric(10,6) DEFAULT 0.000000 NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    customername character varying(100) NOT NULL,
+    iddispatcher integer DEFAULT 0 NOT NULL,
+    dispatchername character varying(100) DEFAULT NULL::character varying
+);
+
+
+ALTER TABLE public.appointments OWNER TO jmiyares;
+
+--
+-- Name: customer; Type: TABLE; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+CREATE TABLE customer (
+    idcustomer integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    middlename character varying(45) DEFAULT NULL::character varying,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) DEFAULT NULL::character varying,
+    active smallint DEFAULT (0)::smallint NOT NULL,
+    facebook character varying(45) DEFAULT NULL::character varying,
+    facebook_token character varying(45) DEFAULT NULL::character varying,
+    twitter character varying(45) DEFAULT NULL::character varying,
+    twitter_token character varying(45) DEFAULT NULL::character varying,
+    wallet character varying(45) DEFAULT NULL::character varying,
+    wallet_token character varying(45) DEFAULT NULL::character varying,
+    paypal character varying(45) DEFAULT NULL::character varying,
+    paypal_token character varying(45) DEFAULT NULL::character varying,
+    createtimestamp timestamp with time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp with time zone DEFAULT now(),
+    password character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.customer OWNER TO jmiyares;
+
+--
+-- Name: customer_idcustomer_seq; Type: SEQUENCE; Schema: public; Owner: jmiyares
+--
+
+CREATE SEQUENCE customer_idcustomer_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.customer_idcustomer_seq OWNER TO jmiyares;
+
+--
+-- Name: customer_idcustomer_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jmiyares
+--
+
+ALTER SEQUENCE customer_idcustomer_seq OWNED BY customer.idcustomer;
+
+
+--
+-- Name: dispatcher; Type: TABLE; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+CREATE TABLE dispatcher (
+    iddispatcher integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    middlename character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    address1 character varying(255) NOT NULL,
+    address2 character varying(255) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    mobile character varying(15) NOT NULL,
+    createtimestamp timestamp with time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp with time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.dispatcher OWNER TO jmiyares;
+
+--
+-- Name: dispatcher_iddispatcher_seq; Type: SEQUENCE; Schema: public; Owner: jmiyares
+--
+
+CREATE SEQUENCE dispatcher_iddispatcher_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.dispatcher_iddispatcher_seq OWNER TO jmiyares;
+
+--
+-- Name: dispatcher_iddispatcher_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jmiyares
+--
+
+ALTER SEQUENCE dispatcher_iddispatcher_seq OWNED BY dispatcher.iddispatcher;
+
+
+--
+-- Name: markets; Type: TABLE; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+CREATE TABLE markets (
+    idmarkets integer NOT NULL,
+    name character varying(45) NOT NULL,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.markets OWNER TO jmiyares;
+
+--
+-- Name: markets_idmarkets_seq; Type: SEQUENCE; Schema: public; Owner: jmiyares
+--
+
+CREATE SEQUENCE markets_idmarkets_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.markets_idmarkets_seq OWNER TO jmiyares;
+
+--
+-- Name: markets_idmarkets_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jmiyares
+--
+
+ALTER SEQUENCE markets_idmarkets_seq OWNED BY markets.idmarkets;
+
+
+--
+-- Name: stylist; Type: TABLE; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+CREATE TABLE stylist (
+    idstylist integer NOT NULL,
+    firstname character varying(45) NOT NULL,
+    middlename character varying(45) NOT NULL,
+    lastname character varying(45) NOT NULL,
+    address1 character varying(45) NOT NULL,
+    address2 character varying(45) DEFAULT NULL::character varying,
+    city character varying(45) NOT NULL,
+    state character varying(45) NOT NULL,
+    postalcode character varying(20) NOT NULL,
+    active smallint DEFAULT 0::smallint NOT NULL,
+    mobile character varying(15) NOT NULL,
+    createtimestamp timestamp without time zone DEFAULT now() NOT NULL,
+    updatetimestamp timestamp without time zone DEFAULT now(),
+    idmarket integer NOT NULL,
+    avatar character varying(255) DEFAULT NULL::character varying,
+    password character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.stylist OWNER TO jmiyares;
+
+--
+-- Name: stylist_idstylist_seq; Type: SEQUENCE; Schema: public; Owner: jmiyares
+--
+
+CREATE SEQUENCE stylist_idstylist_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.stylist_idstylist_seq OWNER TO jmiyares;
+
+--
+-- Name: stylist_idstylist_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: jmiyares
+--
+
+ALTER SEQUENCE stylist_idstylist_seq OWNED BY stylist.idstylist;
+
+
+--
+-- Name: idcustomer; Type: DEFAULT; Schema: public; Owner: jmiyares
+--
+
+ALTER TABLE ONLY customer ALTER COLUMN idcustomer SET DEFAULT nextval('customer_idcustomer_seq'::regclass);
+
+
+--
+-- Name: iddispatcher; Type: DEFAULT; Schema: public; Owner: jmiyares
+--
+
+ALTER TABLE ONLY dispatcher ALTER COLUMN iddispatcher SET DEFAULT nextval('dispatcher_iddispatcher_seq'::regclass);
+
+
+--
+-- Name: idstylist; Type: DEFAULT; Schema: public; Owner: jmiyares
+--
+
+ALTER TABLE ONLY stylist ALTER COLUMN idstylist SET DEFAULT nextval('stylist_idstylist_seq'::regclass);
+
+
+--
+-- Name: customer_pkey; Type: CONSTRAINT; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+ALTER TABLE ONLY customer
+    ADD CONSTRAINT customer_pkey PRIMARY KEY (idcustomer);
+
+
+--
+-- Name: dispatcher_pkey; Type: CONSTRAINT; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+ALTER TABLE ONLY dispatcher
+    ADD CONSTRAINT dispatcher_pkey PRIMARY KEY (iddispatcher);
+
+
+--
+-- Name: markets_pkey; Type: CONSTRAINT; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+ALTER TABLE ONLY markets
+    ADD CONSTRAINT markets_pkey PRIMARY KEY (idmarkets);
+
+
+--
+-- Name: stylist_pkey; Type: CONSTRAINT; Schema: public; Owner: jmiyares; Tablespace: 
+--
+
+ALTER TABLE ONLY stylist
+    ADD CONSTRAINT stylist_pkey PRIMARY KEY (idstylist);
+
+
+--
+-- Name: idmarket; Type: FK CONSTRAINT; Schema: public; Owner: jmiyares
+--
+
+ALTER TABLE ONLY stylist
+    ADD CONSTRAINT idmarket FOREIGN KEY (idmarket) REFERENCES markets(idmarkets);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: jmiyares
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM jmiyares;
+GRANT ALL ON SCHEMA public TO jmiyares;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
